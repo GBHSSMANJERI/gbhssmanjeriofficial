@@ -29,7 +29,12 @@
     }
 
     .container{width:92%;max-width:var(--max-width);margin:0 auto}
-
+.pill{
+  text-decoration:none;
+  color:var(--accent);
+  border:2px solid var(--accent);
+  transition:background .3s ease,color .3s ease;
+  }
     /* NAV */
     header{
       position:sticky;top:0;z-index:60;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));backdrop-filter: blur(6px);box-shadow:var(--shadow);
@@ -67,7 +72,7 @@
 
     /* Programs / cards */
     .grid{display:grid;grid-template-columns:repeat(1,1fr);gap:12px}
-    .card{background:var(--card);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    
     .card h4{margin:0 0 6px}
     .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(37,99,235,0.06);font-weight:700;font-size:12px}
 
@@ -79,6 +84,84 @@
     .slider{position:relative;overflow:hidden;border-radius:12px}
     .slides{display:flex;transition:transform .45s cubic-bezier(.22,.9,.35,1)}
     .slide{min-width:100%;padding:18px;background:linear-gradient(180deg,var(--card),#f8fbff)}
+    #about{
+      background:var(--card);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow);
+    }
+    #contact{
+      background:var(--card);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow);
+    }
+    #img_main{
+      width:100%;
+      height:auto;
+      border-radius:20px;
+      box-shadow:var(--shadow-strong);
+      margin-top:12px;
+    }
+    /* ---------- Gallery Section ---------- */
+.gallery-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.gallery-section h3 {
+  font-size: 1.8rem;
+  color: linear-gradient(135deg,var(--accent-2),var(--accent));
+  margin-bottom: 10px;
+}
+
+.gallery-section p {
+  color: var(--muted, #555);
+  margin-bottom: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.gallery-grid figure {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid figure:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-grid figure:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-grid figcaption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 14px;
+  padding: 8px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+}
+
+.gallery-grid figure:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
     /* contact */
     form{display:grid;gap:10px}
@@ -113,7 +196,7 @@
     .fade-up.in{opacity:1;transform:none}
 
     /* mobile nav drawer */
-    .drawer{position:fixed;right:12px;top:64px;z-index:80;background:var(--card);border-radius:12px;box-shadow:var(--shadow-strong);padding:10px;display:none;flex-direction:column;gap:8px;width:220px}
+    .drawer{position:fixed;right:12px;top:64px;z-index:80;background:var(--);border-radius:12px;box-shadow:var(--shadow-strong);padding:10px;display:none;flex-direction:column;gap:8px;width:220px}
     .drawer a{padding:8px;border-radius:8px}
     .drawer.show{display:flex}
 
