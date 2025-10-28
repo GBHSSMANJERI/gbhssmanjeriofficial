@@ -255,24 +255,7 @@ document.getElementById('contact-form').addEventListener('submit', e => {
     slides.addEventListener('mouseenter', ()=>clearInterval(slideInterval));
     slides.addEventListener('mouseleave', ()=>slideInterval = setInterval(nextSlide,4200));
 
-    // Contact form - client side validation + fake submit
-    const form = document.getElementById('contactForm');
-    const formMsg = document.getElementById('formMsg');
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      if(!name || !email || !phone){ formMsg.textContent = 'Please fill required fields.'; return; }
-      // fake sending (no backend)
-      form.querySelector('button').disabled = true;
-      formMsg.textContent = 'Sending...';
-      setTimeout(()=>{
-        form.reset();
-        form.querySelector('button').disabled = false;
-        formMsg.textContent = 'Thanks! We received your enquiry. We will contact you soon.';
-      }, 900);
-    });
+    
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
