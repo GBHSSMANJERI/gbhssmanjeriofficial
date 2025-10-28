@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GBHSS MANJERI</title>
   <link rel="icon" type="image/png" href="Screenshot_2025-10-17-14-31-33-49_f7aa348215f5d566f9e4ca860f474209-removebg-preview.png">
-  <meta name="description" content="offiacl page GBHSSMANJERI" />
+  <meta name="description" content="Sunrise Academy - nurturing young minds. Responsive school landing page optimized for mobile." />
 
 <link rel="stylesheet" href="style.css"></head>
-<body>
+<body oncontextmenu="return false;">
 
   <header>
     <div class="container nav">
@@ -49,7 +49,7 @@
     <section class="hero" style="margin-top:18px">
       <div class="hero-card fade-up">
         <div class="hero-head">
-          <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px">GB</div>
+          <div class="img-main"><img src="Screenshot_2025-10-17-14-31-33-49_f7aa348215f5d566f9e4ca860f474209-removebg-preview.png" alt=""></div>
           <div>
             <h2>WELLCOME TO <strong>Career guidance club of GBHSS Manjeri</strong></h2>
             <p class="lead">bulid your future</p>
@@ -133,19 +133,15 @@
         <div class="card fade-up">
           <h4>Get in touch</h4>
           <p style="color:var(--muted);">To know more about your career contact us.</p>
-          <form id="contactForm">
-            <input type="text" id="name" placeholder="Full name" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="tel" id="phone" placeholder="Phone number" required>
-            <select id="grade">
-              <option value="">Select grade interested in</option>
-             
-              <option>+1</option>
-              <option>+2</option>
-            </select>
-            <textarea id="message" rows="4" placeholder="Your message "></textarea>
-            <button type="submit">Send enquiry</button>
-          </form>
+         <form id="contact-form">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <input type="text" name="whatsapp" placeholder="Your WhatsApp Number" required>
+  <input type="text" name="class" placeholder="Your Class" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+
           <p id="formMsg" style="color:var(--muted);margin-top:8px;font-size:13px"></p>
         </div>
 
@@ -175,6 +171,27 @@
   </main>
 
   <script>
+    const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/https://script.google.com/macros/s/AKfycbypdDYbrTvhVqFECXBDH-7br0zN2VgHlbIK6TAZVzaYzdPydUgXXdj5UnlSNhi4jdiv/exec'; // 👈 paste your Apps Script URL here
+
+document.getElementById('contact-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch(scriptURL, { method: 'POST', body: formData })
+    .then(response => {
+      if (response.ok) {
+        document.getElementById('status').innerText = "✅ Message sent successfully!";
+        form.reset();
+      } else {
+        document.getElementById('status').innerText = "❌ Error sending message.";
+      }
+    })
+    .catch(error => {
+      console.error('Error!', error);
+      document.getElementById('status').innerText = "❌ Failed to send message.";
+    });
+});
     // Mobile drawer toggle
     const hamburger = document.getElementById('hamburger');
     const drawer = document.getElementById('drawer');
@@ -276,4 +293,3 @@
   </script>
 </body>
 </html>
-
