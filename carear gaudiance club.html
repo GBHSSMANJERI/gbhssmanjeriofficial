@@ -48,8 +48,9 @@
   <main class="container" id="home">
     <section class="hero" style="margin-top:18px">
       <div class="hero-card fade-up">
-        <div class="hero-head">
-          <div class="img-main"><img src="Screenshot_2025-10-17-14-31-33-49_f7aa348215f5d566f9e4ca860f474209-removebg-preview.png" alt=""></div>
+       <div class="hero-head">
+          <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px">GB</div>
+          <div>
           <div>
             <h2>WELLCOME TO <strong>Career guidance club of GBHSS Manjeri</strong></h2>
             <p class="lead">bulid your future</p>
@@ -173,25 +174,27 @@
   <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbypdDYbrTvhVqFECXBDH-7br0zN2VgHlbIK6TAZVzaYzdPydUgXXdj5UnlSNhi4jdiv/exec'; // 👈 paste your Apps Script URL here
 
-document.getElementById('contact-form').addEventListener('submit', e => {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData(form);
+  const form = document.getElementById('contact-form');
 
-  fetch(scriptURL, { method: 'POST', body: formData })
-    .then(response => {
-      if (response.ok) {
-        document.getElementById('status').innerText = "✅ Message sent successfully!";
-        form.reset();
-      } else {
-        document.getElementById('status').innerText = "❌ Error sending message.";
-      }
-    })
-    .catch(error => {
-      console.error('Error!', error);
-      document.getElementById('status').innerText = "❌ Failed to send message.";
-    });
-});
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    fetch(scriptURL, { method: 'POST', body: formData })
+      .then(response => {
+        if (response.ok) {
+          alert("✅ Your message has been sent successfully!");
+          form.reset();
+        } else {
+          alert("❌ Error sending message. Please try again later.");
+        }
+      })
+      .catch(error => {
+        console.error('Error!', error);
+        alert("⚠️ Failed to send message. Please check your internet connection.");
+      });
+  });
+  
     // Mobile drawer toggle
     const hamburger = document.getElementById('hamburger');
     const drawer = document.getElementById('drawer');
